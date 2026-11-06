@@ -22,10 +22,21 @@
 
 ## 安装
 
-把 `chat-backup/` 作为 bundle 装进 profile：
+一条命令：
 
-```text
-plugin_manager  action: install_bundle  target: <chat-backup 的绝对路径>
+```bash
+dsh plugin --profile <profile> add \
+  https://github.com/Jrafina/dsh-chat-backup/releases/download/v1.1.0/dsh-chat-backup-1.1.0.tgz
+```
+
+然后**完全退出**并重新打开 DSH。
+
+> `desktop` 这个 profile 由桌面应用独占，CLI 会拒绝操作（`profile "desktop" is managed exclusively by the Electron application`）。桌面版请在应用内的「设置 → 插件」里粘贴同一个 URL 安装。
+
+本地开发时也可以直接链接源码目录：
+
+```bash
+dsh plugin --profile <profile> add <chat-backup 的绝对路径>
 ```
 
 或手动写进 profile 的 `package.json`：
@@ -84,3 +95,15 @@ node dev/r2.mjs list                          # R2 连通性 / 列举
 ```
 
 `dev/live.mjs`、`dev/flow.mjs`、`dev/r2.mjs` 只从环境变量读凭据，不接受硬编码。
+
+## 发版
+
+```bash
+node dev/pack.mjs        # → dsh-chat-backup-<version>.tgz
+```
+
+把这个 tgz 作为 GitHub Release 的资产上传，tag 用 `v<version>`，资产名保持 `dsh-chat-backup-<version>.tgz`。安装 URL 就是这个形状：
+
+```text
+https://github.com/Jrafina/dsh-chat-backup/releases/download/v<version>/dsh-chat-backup-<version>.tgz
+```

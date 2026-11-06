@@ -26,11 +26,14 @@ _sessions/
 
 ## 安装
 
-插件作为 bundle 装进 profile（`desktop`）。如需重装：
-
-```text
-plugin_manager  action: install_bundle  target: <本目录的绝对路径>
+```bash
+dsh plugin --profile <profile> add \
+  https://github.com/Jrafina/dsh-chat-backup/releases/download/v1.1.0/dsh-chat-backup-1.1.0.tgz
 ```
+
+装完完全退出并重启 DSH。`desktop` profile 由桌面应用独占，CLI 不接受，改用应用内「设置 → 插件」粘贴同一个 URL。
+
+从源码链接安装：`dsh plugin --profile <profile> add <本目录的绝对路径>`。
 
 ## 配置
 
