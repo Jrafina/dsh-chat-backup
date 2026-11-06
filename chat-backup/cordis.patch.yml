@@ -1,0 +1,21 @@
+# Conversation backup bundle: the Host route that renders, packs and uploads,
+# plus the Client button that calls it.
+#
+# Fill the four R2 fields below (or set R2_ACCOUNT_ID / R2_ACCESS_KEY_ID /
+# R2_SECRET_ACCESS_KEY / R2_BUCKET in the environment instead). The plugin stays
+# installed and inactive-but-visible until they are present.
+- insert:
+    - id: chat-backup
+      name: '@local/dsh-chat-backup'
+      config:
+        accountId: ''
+        accessKeyId: ''
+        secretAccessKey: ''
+        bucket: ''
+        # Optional key prefix inside the bucket, e.g. 'dsh' → dsh/2026-11-04--<title>/
+        prefix: ''
+        # Per-file and whole-archive ceilings for the ZIP, in bytes.
+        maxFileBytes: 26214400
+        maxTotalBytes: 104857600
+        # Extra path fragments never packed, e.g. ['tmp/', '.env']
+        exclude: []

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Conversation Backup",
+    "description": "Backs up this conversation as a question/answer transcript and uploads it, together with a ZIP of the files DSH last generated, to a dated folder in Cloudflare R2."
+  }
+}

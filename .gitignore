@@ -1,0 +1,19 @@
+# dependencies / build output
+node_modules/
+*.tgz
+
+# secrets — never commit real credentials
+.env
+.env.*
+*.pem
+*.key
+
+# dev artifacts
+dev/preview.md
+dev/smoke-out.zip
+*.log
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
